@@ -9,7 +9,9 @@ body {
   margin:  5%;
   color: #FEF2BF;
 }
-
+.hidden {
+  display: none;
+}
 .container {
   display: block;
   width: 50%;
@@ -28,6 +30,11 @@ body {
 
 .game-over {
   background-color: red;
+  opacity: 0.8;
+}
+
+.won {
+  background-color: rgb(102, 255, 47);
   opacity: 0.8;
 }
 

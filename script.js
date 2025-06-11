@@ -30,7 +30,7 @@ function playNextSequence() {
 document.getElementById("start-btn").addEventListener("click", () => {
   if (!started) {
     started = true;
-    document.getElementById("start-btn").classList.add("hidden")
+    document.getElementById("start-btn").classList.add("hidden");
     playNextSequence();
   }
 });
@@ -61,6 +61,10 @@ for (let i = 0; i < btns.length; i++) {
 
         if (level > 8) {
           document.getElementById("level-title").innerHTML = "🎉 You WON! 🎉";
+          document.body.classList.add("won");
+          setTimeout(() => {
+            document.body.classList.remove("won");
+          }, 150);
           return;
         }
 
@@ -71,7 +75,7 @@ for (let i = 0; i < btns.length; i++) {
     } else {
       // Wrong step
       document.getElementById("level-title").innerHTML = "❌ Game Over!";
-      document.getElementById("start-btn").classList.remove("hidden")
+      document.getElementById("start-btn").classList.remove("hidden");
       document.getElementById("start-btn").innerHTML = "Play Again";
       document.body.classList.add("game-over");
       setTimeout(() => {
@@ -85,12 +89,10 @@ for (let i = 0; i < btns.length; i++) {
       userStep = 0;
     }
   });
-}
 
-for (let i = 0; i < btns.length; i++) {
+  // Add touch support
   btns[i].addEventListener("touchstart", function (e) {
-    e.preventDefault(); 
-    this.click();  
+    e.preventDefault();
+    this.click();
   });
 }
-
