@@ -15,7 +15,6 @@ function playNextSequence() {
 
   let text = document.getElementById("level-title");
   text.innerHTML = `Level ${level}`;
-
   let btn = document.getElementById(color);
   btn.classList.add("pressed");
 
@@ -31,7 +30,9 @@ document.getElementById("start-btn").addEventListener("click", () => {
   if (!started) {
     started = true;
     document.getElementById("start-btn").classList.add("hidden");
-    playNextSequence();
+    setTimeout(() => {
+      playNextSequence();
+    }, 1000);
   }
 });
 
@@ -70,7 +71,7 @@ for (let i = 0; i < btns.length; i++) {
 
         setTimeout(() => {
           playNextSequence();
-        }, 500);
+        }, 1500);
       }
     } else {
       // Wrong step
